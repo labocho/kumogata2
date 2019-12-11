@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'aws-sdk-cloudformation'
 require 'coderay'
 require 'diffy'
 require 'hashie'
