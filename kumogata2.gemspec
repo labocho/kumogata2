@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'aws-sdk', '~> 3.0'
+  spec.add_dependency 'aws-sdk-cloudformation', '~> 1.29'
   spec.add_dependency 'coderay', '~> 1.1'
   spec.add_dependency 'diffy', '~> 3.2'
   spec.add_dependency 'hashie', '~> 3.5'
