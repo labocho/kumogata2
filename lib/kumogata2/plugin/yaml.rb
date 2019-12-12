@@ -5,10 +5,14 @@ class Kumogata2::Plugin::YAML
 
   # Register tags to parse abbreviated function call like `!Ref: Foo`
   # See: https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
-  %w(And Base64 Cidr Equals FindInMap GetAtt GetAZs If ImportValue Join Not Or Select Split Sub Transform).each do |tag|
+  %w(And Base64 Cidr Equals FindInMap GetAZs If ImportValue Join Not Or Select Split Sub Transform).each do |tag|
     YAML.add_domain_type("", tag) do |type, value|
       {"Fn::" + tag => value}
     end
+  end
+
+  YAML.add_domain_type("", "GetAtt") do |type, value|
+    {"Fn::GetAtt" => value.split(".")}
   end
 
   YAML.add_domain_type("", "Ref") do |type, value|
