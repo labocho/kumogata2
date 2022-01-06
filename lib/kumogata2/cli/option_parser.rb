@@ -3,6 +3,7 @@ module Kumogata2::CLI
     DEFAULT_OPTIONS = {
       result_log: File.join(Dir.pwd, 'result.yaml'),
       color: $stdout.tty?,
+      compact_template: false,
     }
     DEFAULT_OPTION_RETRY_LIMIT = 100
 
@@ -150,6 +151,7 @@ module Kumogata2::CLI
       opt.on(''  , '--[no-]color')              {|v| options[:color]            = v }
       opt.on(''  , '--[no-]ignore-all-space')   {|v| options[:ignore_all_space] = v }
       opt.on(''  , '--[no-]debug')              {|v| options[:debug]            = v }
+      opt.on(''  , '--compact-template')        {|v| options[:compact_template] = v }
 
       opt.parse!
 

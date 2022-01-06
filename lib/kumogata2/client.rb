@@ -712,7 +712,7 @@ EOS
       when 'json'
         return plugin_instance.dump(value, color)
       when 'yaml'
-        return plugin_instance.dump(value, color)
+        return plugin_instance.dump(value, color, compact: ext == "template" && @options[:compact_template])
       end
     end
     value

@@ -27,7 +27,9 @@ class Kumogata2::Plugin::YAML
     YAML.load(str)
   end
 
-  def dump(hash, color = true)
+  def dump(hash, color = true, compact: false)
+    return JSON.generate(hash) if compact
+
     Hashie.stringify_keys!(hash)
     if color
       YAML.dump(hash).colorize_as(:yaml)
