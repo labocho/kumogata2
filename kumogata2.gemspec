@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'abbrev', '~> 0.1.2'
   spec.add_dependency 'aws-sdk-cloudformation', '~> 1.29'
   spec.add_dependency 'coderay', '~> 1.1'
   spec.add_dependency 'diffy', '~> 3.2'
